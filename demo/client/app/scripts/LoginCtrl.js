@@ -1,11 +1,13 @@
 angular.module('phonertcdemo')
 
   .controller('LoginCtrl', function ($scope, $state, $ionicPopup, signaling, ContactsService) {
+
     $scope.data = {};
     $scope.loading = false;
 
     $scope.login = function () {
       $scope.loading = true;
+      console.log(JSON.stringify(signaling));
       signaling.emit('login', $scope.data.name);
     };
 
